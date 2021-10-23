@@ -10,7 +10,7 @@
   <tbody>
     <% @users.each do |user| %>
     <tr>
-      <th><%= attachment_image_tag, :profile_image.user, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" %</th>
+      <th><%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" %></th>
       <th><%= user.name %></th>
       <th><%= link_to "Show", user_path(user.id) %></th>
     </tr>
