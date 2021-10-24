@@ -14,18 +14,18 @@
               <td>
                 <%= attachment_image_tag @book.user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" %>
                 <br>
-                <%= link_to @book.user, user_path(@book.user_id) %>
+                <%= link_to @book.user.name, user_path(@book.user_id) %>
               </td>
               <td><%= link_to @book.title, book_path(@book.id) %></td>
               <td><%= @book.body %></td>
               <% if @book.user == current_user %>
-                
+
                   <td><%= link_to edit_book_path(@book) do %>
                   <button class="show-edit-btn" >Edit</button>
                   <% end %>
                   </td>
-                
-                
+
+
                   <td><%= link_to book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？" do %>
                   <button class="show-destroy-btn">Destroy</button>
                   <% end %>

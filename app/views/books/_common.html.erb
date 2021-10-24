@@ -1,3 +1,9 @@
+<div class="flash">
+  <% if flash[:notice] %>
+  <%= flash[:notice] %>
+  <% end %>
+</div>
+
 <div class="container">
   <div class="row">
     
@@ -18,7 +24,7 @@
         </table>
         <button class="edit-btn">
           <%= link_to edit_user_path(user.id) do %>
-          <i class="fas fa-user-edit"></i>
+          <i class="fas fa-user-cog"></i>
           <% end %>
         </button>
       </div>

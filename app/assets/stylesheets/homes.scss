@@ -2,12 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.btn {
-  display: block;
-  width: 100%;
+.container {
+  margin: 0 auto;
 }
 
-.btn-login {
+.title {
+   margin-top: 30px;
+   margin-bottom: 30px;
+}
+
+.btn-login,
+.btn-signup {
+  display: block;
+  width: 100%;
+  margin: 20px;
+  border: none;
+  border-radius: 5px;
   color: white;
+}
+
+
+.btn-login {
   background-color: #17a2b8;
 }
+
+.btn-signup {
+  background-color: #28a745;
+}
+
