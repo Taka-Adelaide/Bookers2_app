@@ -6,7 +6,7 @@
 
 <div class="container">
   <div class="row">
-    
+
       <div class="User-info">
         <h2>User info</h2>
         <%= attachment_image_tag user, :profile_image, :fill, 63, 63, format: 'jpeg', fallback: "no_image.jpg" %>
@@ -23,8 +23,14 @@
           </tbody>
         </table>
         <button class="edit-btn">
-          <%= link_to edit_user_path(user.id) do %>
-          <i class="fas fa-user-cog"></i>
+          <% if user == current_user %>
+            <%= link_to edit_user_path(current_user.id) do %>
+            <i class="fas fa-user-cog"></i>
+            <% end %>
+          <% else %>
+            <%= link_to user_path(current_user.id) do %>
+            <i class="fas fa-user-cog"></i>
+            <% end %>
           <% end %>
         </button>
       </div>
@@ -36,10 +42,10 @@
           <%= f.text_field :title %>
           <P>Opinion</P>
           <%= f.text_area :body %>
-          <%= f.submit "Create book" %>
+          <%= f.submit "Create Book" %>
         <% end %>
       </div>
-    
+
   </div>
 
 

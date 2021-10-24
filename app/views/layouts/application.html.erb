@@ -26,7 +26,7 @@
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
                 <li>
-                  <%= link_to root_path do %>
+                  <%= link_to user_path(current_user.id) do %>
                   <i class="fas fa-home"></i>Home
                   <% end %>
                 </li>
@@ -43,6 +43,7 @@
                 <li>
                   <%= link_to destroy_user_session_path, method: :delete do %>
                   <i class="fas fa-sign-out-alt"></i>Log out
+
                   <% end %>
                 </li>
               <% else %>
@@ -50,10 +51,10 @@
                   <%= link_to root_path do %>
                   <i class="fas fa-home"></i>Home
                   <% end %>
-                  
+
                 </li>
                 <li>
-                  <%= link_to "home/about" do %>
+                  <%= link_to "/home/about" do %>
                   <i class="fas fa-link"></i>About
                   <% end %>
                 </li>

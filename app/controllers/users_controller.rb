@@ -6,9 +6,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @book = Book.new
-    @books = current_user.books
+    @user = User.find(params[:id])
+    @book_new = Book.new
+    @books = Book.where(user_id: @user.id)
+
   end
 
 
