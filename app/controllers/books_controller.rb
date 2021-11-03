@@ -3,6 +3,7 @@ class BooksController < ApplicationController
     @user = current_user
     @books = Book.all
     @book = Book.new
+    
   end
 
   def create

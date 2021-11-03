@@ -7,5 +7,12 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
   end
-  resources :users
+  resources :users do
+    member do
+      get :follows, :followers
+    end
+    resource :relationships, only: [:create, :destroy,]
+    get "follow" => "relationships#follow_index", as: "follow"
+    get "follower" => "relationships#follower_index", as: "follower"
+  end
 end
