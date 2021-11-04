@@ -1,0 +1,7 @@
+<% if @model == 'user' %>
+  <h3>Books search for "<%= @content %>"</h3>
+  <%= render 'users_index', users: @records %>
+<% else @model == 'book' %>
+  <h3>Books search for "<%= @content %>"</h3>
+    <%= render 'books_index', books: @records %>
+<% end %>
