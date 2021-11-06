@@ -1,9 +1,55 @@
-<% if user_signed_in? %>
-    <%= form_tag(search_path, method: :get) do %>
-      <%= text_field_tag 'content' %>
-      <%= select_tag 'model', options_for_select({ "User" => "user", "Book" => "book" }) %>
-      <%= select_tag 'method', options_for_select({ "完全一致" => "perfect", "部分一致" => "partial" }) %>
-      <%= submit_tag '検索' %>
-    <% end %>
-<% end %>
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-1">
+      <% if @model == "user" %>
+      <h2>Users search for "<%= @value %>"</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan = "1"></th>
+            <th>Name</th>
+            <th>Introduction</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @datas.each do |user| %>
+          <tr>
+            <th><%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" %></th>
+            <th>
+              <%= link_to user_path(user.id) do %>
+                <%= user.name %>
+              <% end %>
+            <th>
+            <th><%= user.introduction %></th>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <% elsif @model == "book" %>
+      <h2>Books search for "<%= @value %>"</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="1"></th>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @datas.each do |book| %>
+          <tr>
+            <th><%= attachment_image_tag book.user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg" %></th>
+            <th>
+              <%= link_to book_path(book.id) do %>
+                <%= book.title %>
+              <% end %>
+            </th>
+            <th><%= book.body %></th>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>
