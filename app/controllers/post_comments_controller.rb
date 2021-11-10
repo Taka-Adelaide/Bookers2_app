@@ -5,7 +5,6 @@ class PostCommentsController < ApplicationController
     comment.user_id = current_user.id
     comment.book_id = @book.id
     comment.save
-
   end
 
   def destroy

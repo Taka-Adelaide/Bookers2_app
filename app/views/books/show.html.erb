@@ -32,8 +32,6 @@
               <td class="favorite-button_<%= @book.id %>">
                 <%= render 'favorites/favorites', book: @book %>
               </td>
-
-
               <td>
                 <P>コメント数:<%= @book.post_comments.count %></P>
               </td>
@@ -42,7 +40,6 @@
       </table>
 
       <div class="comment_form_<%= @book.id %>">
-
         <%= render 'post_comments/comment', book: @book, post_comment: @post_comment %>
         <div>
           <%= form_with(model:[@book, @post_comment], remote: true) do |f| %>
@@ -50,10 +47,7 @@
             <%= f.submit "送信" %>
           <% end %>
         </div>
-
       </div>
-
-
     </div>
   </div>
 </div>
